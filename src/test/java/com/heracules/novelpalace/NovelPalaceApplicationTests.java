@@ -1,4 +1,4 @@
-package com.hercules.novelpalace;
+package com.heracules.novelpalace;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
