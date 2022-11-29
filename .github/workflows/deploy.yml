@@ -24,6 +24,17 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
         shell: bash
+        
+      - name: make application-db.properties
+        if: contains(github.ref, 'main')
+        run: |
+          cd ./src/main/resources
+          echo "spring.data.mongodb.uri=$MONGO_DB_URI" >> application-db.properties
+          echo "spring.data.mongodb.database=$MONGO_DB_DATABASE" >> application-db.properties
+        shell: bash
+        env:
+          MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
+          MONGO_DB_DATABASE: ${{ secrets.MONGO_DB_DATABASE }}
 
       - name: Build with Gradle
         run: ./gradlew build
