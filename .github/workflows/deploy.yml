@@ -26,7 +26,6 @@ jobs:
         shell: bash
         
       - name: make application-db.properties
-        if: contains(github.ref, 'main')
         run: |
           cd ./src/main/resources
           echo "spring.data.mongodb.uri=$MONGO_DB_URI" >> application-db.properties
