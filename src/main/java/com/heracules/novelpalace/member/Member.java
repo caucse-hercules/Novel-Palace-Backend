@@ -27,4 +27,11 @@ public class Member {
     ArrayList<String> ownNovels;
     ArrayList<String> library;
     ArrayList<String> recommendEpisodes;
+
+    public Member update(String name, String picture) {
+        this.nickname=name;
+        this.picture=picture;
+
+        return this;
+    }
 }
